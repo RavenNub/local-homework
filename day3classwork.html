@@ -6,6 +6,7 @@
     <title>Feedback form</title>
 </head>
 <body>
+    <p id="demo"></p>
     <script>
     var feedback = "   I loved the FOOD and the service!   ";
     console.log(feedback.trim());
@@ -13,6 +14,9 @@
     console.log(feedback.replace("FOOD", "ambiance"));
     console.log(feedback.indexOf("service"));
     console.log(feedback.lastIndexOf("service"));
+    var arr=feedback.split("");
+    console.log(arr);
+    document.getElementById("demo").innerHTML = arr;
 
     </script>
 </body>
