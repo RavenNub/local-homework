@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item Return Page</title>
+</head>
+<body>
+  <h1>Item Return</h1>
+  
+  <button id="checkReturnBtn">Check Return Eligibility</button>
+  <p id="result"></p>
+
+  <script>
+
+    var order = {
+      itemName: "Wireless Headphones",
+      isDelivered: true,
+      daysSinceDelivery: 5
+    };
+
+    function checkReturn() {
+      if ("itemName" in order) {
+        console.log("Item Name exists:", order.itemName);
+      } else {
+        console.log("Item Name does not exist.");
+      }
+
+ 
+      var message = (order.isDelivered && order.daysSinceDelivery <= 7) 
+                    ? "Eligible for Return" 
+                    : "Return Period Expired";
+
+      document.getElementById("result").textContent = message;
+
+    
+      delete order.daysSinceDelivery;
+      console.log("daysSinceDelivery property removed:", order);
+    }
+    document.getElementById("checkReturnBtn").addEventListener("click", checkReturn);
+  </script>
+</body>
+</html>

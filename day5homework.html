@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Access</title>
 </head>
 <body>
-    <script>
-        
-    </script>
+  <h1>User Profile Page</h1>
+  
+  <button id="checkAccessBtn">Check Admin Access</button>
+  <p id="result"></p>
+
+  <script>
+
+    var user = {
+      name: "Alice",
+      age: 20,
+      isAdmin: true
+    };
+
+    
+    function checkAccess() {
+      
+      if ("age" in user) {
+        console.log("Age property exists:", user.age);
+      } else {
+        console.log("Age property does not exist.");
+      }
+
+      var accessMessage = (user.age >= 18 && user.isAdmin) ? "Access Granted" : "Access Denied";
+
+      
+      document.getElementById("result").textContent = accessMessage;
+
+
+      delete user.age;
+      console.log("Age property deleted:", user);
+    }
+
+    document.getElementById("checkAccessBtn").addEventListener("click", checkAccess);
+  </script>
 </body>
 </html>
